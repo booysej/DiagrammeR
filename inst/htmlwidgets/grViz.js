@@ -23,17 +23,20 @@ HTMLWidgets.widget({
        var svgContainer = d3.select("svg"),inner = svgContainer.select("g");
 
        // Set up zoom support
-       var zoom = d3.behavior.zoom().on("zoom", function() {         
-         inner.attr("transform", "translate(" + d3.event.translate + ")" +
-                                  "scale(" + d3.event.scale + ")");
-       });
-       svgContainer.call(zoom);
+     
          
          
         if(svg.width) {svg.removeAttribute("width")};
         if(svg.height) {svg.removeAttribute("height")};
         svg.style.width = "100%";
         svg.style.height = "100%";
+        
+        var zoom = d3.behavior.zoom().on("zoom", function() {         
+         inner.attr("transform", "translate(" + d3.event.translate + ")" +
+                                  "scale(" + d3.event.scale + ")");
+       });              
+       //svgContainer.call(zoom);
+        
        }
     };
     
